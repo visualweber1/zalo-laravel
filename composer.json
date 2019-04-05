@@ -1,0 +1,38 @@
+{
+  "name": "visualweber1/zalo-laravel",
+  "description": "Zalo Push Wrapper Laravel",
+  "keywords": ["zalo", "webpush", "push", "laravel", "laravel 5"],
+  "type": "library",
+  "require": {
+    "php": ">=5.4.0",
+    "zaloplatform/zalo-php-sdk": "^1.0",
+  },
+  "require-dev": {
+   
+  },
+  "autoload": {
+    "psr-4": {
+      "Visualweber\\Zalo\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Visualweber\\Zalo\\ZaloServiceProvider"
+      ],
+      "aliases": {
+        "Zalo": "Visualweber\\Zalo\\ZaloFacade"
+      }
+    }
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Hoang Hao",
+      "email": "hoanghaosktt1ls@gmail.com",
+      "homepage": "https://visualweber.com"
+    },
+  ],
+  "minimum-stability": "dev",
+  "prefer-stable": true 
+}
