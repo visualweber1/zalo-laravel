@@ -31,7 +31,7 @@
       "name": "Hoang Hao",
       "email": "hoanghaosktt1ls@gmail.com",
       "homepage": "https://visualweber.com"
-    },
+    }
   ],
   "minimum-stability": "dev",
   "prefer-stable": true 
