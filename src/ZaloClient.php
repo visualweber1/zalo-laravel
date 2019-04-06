@@ -86,5 +86,11 @@ class ZaloClient
         $response = $zalo->get(ZaloEndpoint::API_GRAPH_ME, $params, $accessToken);
         return $response->getDecodedBody(); // result
     }
-
+    
+    public function getInfoUserFromAccessToken($accessToken)
+    {
+        $params = [];
+        $response = $this->zalo->get(ZaloEndpoint::API_GRAPH_ME, $params, $accessToken);
+        return $response->getDecodedBody(); // result
+    }
 }
