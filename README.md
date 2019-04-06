@@ -16,3 +16,9 @@ Zalo For laravel
     'aliases'=>[
       'Zalo' => Visualweber\Zalo\ZaloFacade::class,
     ]
+  
+ 3. Config Zalo App
+ 
+    php artisan vendor:publish then choose Visualweber\Zalo\ZaloServiceProvider then enter
+    
+    You can show file zalo.php in config folder
