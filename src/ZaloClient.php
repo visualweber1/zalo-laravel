@@ -3,6 +3,7 @@
 namespace Visualweber\Zalo;
 
 use Zalo\Zalo;
+use Zalo\ZaloEndpoint;
 
 class ZaloClient
 {
@@ -15,10 +16,11 @@ class ZaloClient
     protected $oaId;
     protected $oaSecret;
     protected $url_callback;
+    protected $option;
 
     protected $zalo;
 
-    public function __construct($appId,$appSecret,$oaId,$oaSecret,$option = [])
+    public function __construct($appId,$appSecret,$oaId = null,$oaSecret =null,$option = [])
     {
 
 
@@ -27,22 +29,23 @@ class ZaloClient
         $this->oaId = $oaId;
         $this->oaSecret = $oaSecret;
         $this->url_callback = $option['url_callback'];
-
-        $this->zalo = new Zalo($this->getInstance()->getConfig());
+        $this->option = $option;
+        $this->zalo = new Zalo($this->getConfig());
     }
 
-    /**
-     * Get a singleton instance of the class
-     *
-     * @return self
-     * @codeCoverageIgnore
-     */
-    public static function getInstance() {
-        if (!self::$instance) {
-            self::$instance = new self();
-        }
-        return self::$instance;
-    }
+    // /**
+    //  * Get a singleton instance of the class
+    //  *
+    //  * @return self
+    //  * @codeCoverageIgnore
+    //  */
+    // public static function getInstance() {
+    // 	echo $this->appId;
+    //     // if (!self::$instance) {
+    //     //     self::$instance = new self($this->appId,$this->appSecret,$this->oaId,$this->oaSecret,$this->option);
+    //     // }
+    //     // return self::$instance;
+    // }
 
     /**
      * Get zalo sdk config
@@ -50,10 +53,10 @@ class ZaloClient
      */
     public function getConfig() {
         return [
-            'app_id' => static::appId,
-            'app_secret' => static::appSecret,
-            'oa_id' => static::oaId,
-            'oa_secret' => static::oaSecret
+            'app_id' => $this->appId,
+            'app_secret' => $this->appSecret,
+            'oa_id' => $this->oaId,
+            'oa_secret' => $this->oaSecret
         ];
     }
 
